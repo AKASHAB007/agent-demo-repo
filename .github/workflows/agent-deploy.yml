@@ -1,0 +1,25 @@
+
+name: Agent Validation & Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate agent definition
+        run: |
+          echo "Validating agent files..."
+          cat agent/sales-agent.json
+
+      - name: Simulate deployment
+        run: |
+          echo "Deploying agent to DEV environment..."
+          echo "Agent deployment successful ✅"
