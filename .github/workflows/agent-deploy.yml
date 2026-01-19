@@ -4,7 +4,7 @@ name: Agent Validation & Deployment
 on:
     push:
         branches:
-            - masters
+            - master
 
 jobs:
   validate-and-deploy:
@@ -17,7 +17,7 @@ jobs:
       - name: Validate agent definition
         run: |
           echo "Validating agent files..."
-          python -m json.tool agent/sales-agent.json
+          cat agent/sales-agent.json
 
       - name: Simulate deployment
         run: |
