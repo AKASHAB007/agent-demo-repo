@@ -4,7 +4,7 @@ name: Agent Validation & Deployment
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   validate-and-deploy:
