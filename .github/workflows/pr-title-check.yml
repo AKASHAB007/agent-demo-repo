@@ -6,7 +6,7 @@ on:
 
 jobs:
   jira-title-check:
-    name: Validate PR Title
+    name: Validate PR Title Conventions
     runs-on: ubuntu-latest
 
     steps:
