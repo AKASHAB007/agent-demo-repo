@@ -1,0 +1,30 @@
+name: Enforce PR Title Convention (Jira)
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  jira-title-check:
+    name: Validate PR Title
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR title for Jira ticket
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prTitle = context.payload.pull_request.title;
+            const jiraRegex = /^[A-Z]{2,10}-\d+:/;
+
+            if (!jiraRegex.test(prTitle)) {
+              core.setFailed(
+                `❌ PR title does not follow convention.\n\n` +
+                `Expected format:\n` +
+                `ABC-123: Short description\n\n` +
+                `Your title:\n` +
+                `${prTitle}`
+              );
+            } else {
+              console.log("✅ PR title follows Jira convention");
+            }
