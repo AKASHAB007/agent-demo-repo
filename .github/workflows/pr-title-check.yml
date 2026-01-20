@@ -26,5 +26,5 @@ jobs:
                 `${prTitle}`
               );
             } else {
-              console.log("✅ PR title follows Jira convention");
+              console.log("✅ PR title follows Jira conventions");
             }
