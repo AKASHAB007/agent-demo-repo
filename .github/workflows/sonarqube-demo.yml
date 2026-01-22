@@ -24,8 +24,3 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=akash-a-benki
-            -Dsonar.projectKey=AKASHAB007_agent-demo-repo
-            -Dsonar.sources=.
